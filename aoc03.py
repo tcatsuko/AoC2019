@@ -68,9 +68,6 @@ for move in wire_2:
             wire_2_locations += [new_pos]
             current_pos = new_pos
 
-
-        
-
 intersections = list(set(wire_1_locations).intersection(wire_2_locations))
 for item in intersections:
     int_distance = abs(item[0]) + abs(item[1])

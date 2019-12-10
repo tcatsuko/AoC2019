@@ -1,34 +1,18 @@
+import networkx as nx
 f = open('aoc06.txt','r')
-raw_input = []
+input_file = []
 for line in f:
-    raw_input += [line[:-1]]
+    input_file += [line[:-1]]
 f.close()
-planets = {}
-for item in raw_input:
-    split_item = item.split(')')
-    parent = split_item[0]
-    child = split_item[1]
-    if child not in planets:
-        planets[child] = {}
-        planets[child]['parent'] = parent
-        planets[child]['children'] = []
-    else:
-        planets[child]['parent'] = parent
-    if parent not in planets:
-        planets[parent] = {}
-        planets[parent]['children'] = []
-        planets[parent]['children'] += [child]
-    else:
-        planets[parent]['children'] += [child]    
-# Now traverse and count parents
+G = nx.DiGraph()
+G2 = nx.Graph()
+for item in input_file:
+    split_items = item.split(')')
+    G.add_edge(split_items[0], split_items[1])
+    G2.add_edge(split_items[0], split_items[1])
 orbits = 0
-
-def find_orbits(planets, planet):
-    if 'parent' not in planets[planet]:
-        return 0
-    else:
-        return 1 + find_orbits(planets, planets[planet]['parent'])
-    
-for planet in planets.keys():
-    orbits += find_orbits(planets, planet)
-print('Part 1: there are ' + str(orbits) + ' direct and indrect orbits')
+root_node = [n for n, d in G.in_degree() if d == 0][0]
+for node in G.nodes:
+    orbits += nx.shortest_path_length(G, root_node, node)
+print('Part 1: there are ' + str(orbits) + ' orbits')
+print('Paet 2: You need to do ' + str(nx.shortest_path_length(G2, 'YOU', 'SAN')-2) + ' transfers.')

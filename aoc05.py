@@ -148,4 +148,3 @@ while program_running == True:
         program_running = False
 
 print('Part 1: most recent output is ' + str(recent_output))
-# 484272331 too high

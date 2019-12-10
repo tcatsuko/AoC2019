@@ -61,9 +61,6 @@ for layer in image:
 
 print('Part 1: ' + str(low_ones * low_twos))
 
-# Part 2
-# Flatten each layer
-
 
 def find_color(image, position, current_layer, num_layers):
     global width
@@ -71,7 +68,6 @@ def find_color(image, position, current_layer, num_layers):
     column = position % width
     row = position / width
     pixel = image[current_layer][row][column]
-    #pixel = flattened_image[current_layer][position]
     if pixel == '0':
         return ' '
     elif pixel == '1':
@@ -90,8 +86,6 @@ for position in range(0,width*height):
         new_row = []
     new_row += find_color(image, position, 0, len(image))
 new_image += [new_row]
-
-
 
 for row in new_image:
     print(''.join(row))

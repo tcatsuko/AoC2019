@@ -4,7 +4,6 @@ for line in f:
     program_input_raw += [line]
 f.close()
 program_input = program_input_raw[0][:-1].split(',')
-print()
 input_value = 2
 program_counter = 0
 mode1 = 0
@@ -66,8 +65,6 @@ def add(program_input, mode1, mode2, mode3, rel_base, program_counter):
 
     result = addend1 + addend2
     program_input[location] = str(result)    
-
-
 
 
 while program_running == True:
@@ -374,4 +371,4 @@ while program_running == True:
         program_running = False
 
 
-print('Part 1: most recent output is ' + str(recent_output))
+print('Most recent output is ' + str(recent_output) + ' for an input of ' + str(input_value))

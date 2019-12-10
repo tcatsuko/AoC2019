@@ -14,7 +14,7 @@ part_2_raw += [program_input[:]]
 part_2_raw += [program_input[:]]
 part_2_raw += [program_input[:]]
 
-#print()
+
 input_value = 5
 largest_output = 0
 sequences = list(permutations(range(0,5)))

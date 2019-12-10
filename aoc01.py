@@ -13,6 +13,7 @@ def calc_fuel(mass):
         return fuel_required + calc_fuel(fuel_required)
     else:
         return 0
+    
 # part 2
 fuel_total = 0
 for part_mass in problem_input:

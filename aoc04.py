@@ -29,6 +29,7 @@ end_range = 679128
 part_1 = 0
 part_2 = 0
 
+
 for password in range(start_range, end_range + 1):
     result = check_password(password)
     part_1 += result[0]

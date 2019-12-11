@@ -1,4 +1,4 @@
-starting_panel = 0
+starting_panel = 1
 
 f = open('aoc11.txt','r')
 program_input_raw = []
@@ -28,7 +28,7 @@ def expand_memory(program_input, spot_needed):
 # Simulate input / output
 
 current_position = (0,0)
-current_direction = (0,1)
+current_direction = (0,-1)
 painting = True
 surface = {}
 surface[(0,0)] = starting_panel
@@ -412,9 +412,7 @@ def display_grid(surface):
         if value == 1:
             image_output[corrected_location[1]][corrected_location[0]] = '#'
             #print(image_output[corrected_location[1]][corrected_location[0]])
-    image_output.reverse()
     for row in image_output:
-        row.reverse()
         print(''.join(row))
         
 print('The robot painted ' + str(len(painted_regions)) + ' at least once.')

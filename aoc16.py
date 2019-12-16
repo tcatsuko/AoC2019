@@ -17,35 +17,19 @@ def split(word):
 offset = 0
 
 
-if part2 == True:
-    print('Finished generating input number')
-    
-
-#for position in range(len(input_number)):
-    ## First generate the correct input pattern
-    #multiplier = position
-    #base_pattern_queue = deque(base_pattern)
-    #pattern_to_apply = deque()
-    #for number in base_pattern:
-        #pattern_to_apply.append(number)
-        #for x in range(multiplier):
-            #pattern_to_apply.append(number)
-    #pattern_to_apply.rotate(-1)
-    #pattern_queues += [pattern_to_apply]
 output_signal = deque(split(input_number))
 pattern_queues += [deque(base_pattern)]
 
 print('Completed generating patterns')
 print('Input number is ' + str(len(input_number)) + ' digits.')
 output_signals = []
-#output_signals += [''.join(list(output_signal))]
+
 
 for phase in range(number_of_phases):
     new_output = deque()
     current_digit = 0
     for x in range(len(input_number)):
         current_digit_sum = 0
-        #current_pattern = pattern_queues[x].copy()
         current_pattern = copy.copy(pattern_queues[0])
         current_pattern.rotate(-1)
         pattern_multiply = x
@@ -60,15 +44,15 @@ for phase in range(number_of_phases):
             if current_multiply > pattern_multiply:
                 current_multiply = 0
                 current_pattern.rotate(-1)
-            #current_pattern.rotate(-1)
         new_output.append(str(current_digit_sum)[-1])
     output_signal = copy.deepcopy(new_output)
-    #output_signals += [''.join(list(output_signal))]
-#output_signal_list = list(output_signal)
+
 first_8 = ''
 for x in range(offset, offset + 8):
     first_8 += output_signal[x]
 print('Part 1: After ' + str(number_of_phases) + ' phases the output is ' + first_8)
+
+
 # Part 2 clever solution
 offset = int(raw_input[0][0:7])
 # In second half of large number, its just the sum of digits

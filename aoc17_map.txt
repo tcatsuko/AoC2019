@@ -40,6 +40,6 @@
 
 A, B, B, C, C, A, A, B, B, C
 
-A:L12, R4, R4
-B:[R12, R4, L12]
-C: [R12, R4, L6, L8, L8]
+A: L12, R4, R4
+B: R12, R4, L12
+C: R12, R4, L6, L8, L8

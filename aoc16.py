@@ -58,10 +58,7 @@ offset = int(raw_input[0][0:7])
 # In second half of large number, its just the sum of digits
 # Can march backwards and add things that way since offset is larger than half the length of the input arrau
 input_number = raw_input[0]
-part_2_input = input_number * 10000
-part_2_input = list(part_2_input[offset:])
 assert offset >= len(input_number) * 10000 / 2 
-
 
 input_number_ints = [int(x) for x in split(input_number)]
 input_number_ints = (input_number_ints * 10000)[offset:]

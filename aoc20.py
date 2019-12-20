@@ -1,7 +1,7 @@
 import networkx as nx
 import string
 
-f = open('aoc19.txt','r')
+f = open('aoc20.txt','r')
 
 part2 = True
 
